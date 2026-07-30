@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude · Team usage details</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="page-glow" aria-hidden="true"></div>
+<div class="grid-bg" aria-hidden="true"></div>
+
+<header>
+  <a class="brand" href="#" aria-label="Claude usage survey home">
+    <img class="brand-logo" src="claude-logo.svg" alt="Claude">
+    <span class="brand-divider" aria-hidden="true"></span>
+    <span class="brand-tag">DataGardener team survey</span>
+  </a>
+  <span class="header-badge"><span></span> Internal form</span>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot"></span>For Claude users only</p>
+      <h1>Help us understand how <em>Claude</em> supports your work.</h1>
+      <p>Share a few details about your plan and workflow so we can make better decisions about licenses, access, and AI tooling for the team.</p>
+      <div class="hero-meta">
+        <span><svg viewBox="0 0 24 24" fill="none"><path d="M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> Takes about 1 minute</span>
+        <span><svg viewBox="0 0 24 24" fill="none"><path d="M7 10V8a5 5 0 0 1 10 0v2M6 10h12v10H6V10Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg> Internal &amp; secure</span>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <span class="orb orb-one"></span>
+      <span class="orb orb-two"></span>
+      <div class="claude-glyph">✳</div>
+      <p>Thoughtful AI,<br>better work.</p>
+    </div>
+  </section>
+
+  <div class="growth-anchor" id="growthAnchor" aria-hidden="true"></div>
+  <div class="growth-rail" id="growthRail" aria-live="polite">
+    <div class="growth-top">
+      <div class="growth-badge">
+        <span class="growth-pulse" aria-hidden="true"></span>
+        <span class="growth-badge-text">Progress</span>
+      </div>
+      <div class="growth-count">
+        <b id="progressLabel">0</b><span class="growth-total"> / 6</span>
+      </div>
+    </div>
+    <div class="growth-track" role="progressbar" aria-valuemin="0" aria-valuemax="6" aria-valuenow="0" id="progressBar">
+      <div class="growth-fill" id="progressFill"></div>
+      <div class="growth-steps" id="progressSteps">
+        <span class="growth-step" data-step="1"></span>
+        <span class="growth-step" data-step="2"></span>
+        <span class="growth-step" data-step="3"></span>
+        <span class="growth-step" data-step="4"></span>
+        <span class="growth-step" data-step="5"></span>
+        <span class="growth-step" data-step="6"></span>
+      </div>
+    </div>
+    <div class="growth-copy" id="progressHint">Start with your name — about a minute.</div>
+  </div>
+
+  <aside class="cursor-pill" aria-label="Selected tool">
+    <div class="cursor-pill-icon" aria-hidden="true">✳</div>
+    <div>
+      <div class="cursor-pill-label">Selected AI assistant</div>
+      <div class="cursor-pill-name">Claude by Anthropic</div>
+    </div>
+    <span class="cursor-pill-lock">Pre-selected</span>
+  </aside>
+
+  <form id="entryForm">
+    <div class="card">
+
+      <div class="section" data-field="name">
+        <div class="section-head">
+          <div class="stage-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="2"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Your name</h3>
+          <span class="req">required</span>
+        </div>
+        <div class="field" id="nameField" style="margin-bottom:0;max-width:420px;">
+          <label for="userName">Full name</label>
+          <input type="text" id="userName" placeholder="e.g. Rahul Sharma" autocomplete="name" required>
+          <div class="error-msg">Please enter your name.</div>
+        </div>
+      </div>
+
+      <div class="section" data-field="plan">
+        <div class="section-head">
+          <div class="stage-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Which Claude plan are you on?</h3>
+          <span class="req">required</span>
+        </div>
+        <div class="chip-select plan-select" id="planChips" role="radiogroup" aria-label="Claude plan">
+          <div class="chip" data-v="Free" role="radio" aria-checked="false" tabindex="0">Free</div>
+          <div class="chip" data-v="Pro" role="radio" aria-checked="false" tabindex="0">Pro</div>
+          <div class="chip" data-v="Max 5x" role="radio" aria-checked="false" tabindex="0">Max <span class="chip-meta">5×</span></div>
+          <div class="chip" data-v="Max 20x" role="radio" aria-checked="false" tabindex="0">Max <span class="chip-meta">20×</span></div>
+          <div class="chip" data-v="Team" role="radio" aria-checked="false" tabindex="0">Team</div>
+          <div class="chip" data-v="Enterprise" role="radio" aria-checked="false" tabindex="0">Enterprise</div>
+        </div>
+        <div class="error-msg" id="planError" style="display:none;margin-top:10px;">Please select your Claude plan.</div>
+      </div>
+
+      <div class="section" data-field="usage">
+        <div class="section-head">
+          <div class="stage-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 7h8M8 12h5M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>How do you mainly use Claude?</h3>
+          <span class="req">required</span>
+        </div>
+        <p class="section-note">Choose the Claude experience that best matches your day-to-day workflow.</p>
+        <div class="usage-grid" id="usageModes" role="radiogroup" aria-label="How you use Claude">
+          <button type="button" class="usage-card" data-v="Chat only" role="radio" aria-checked="false">
+            <span class="usage-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M5 6.5A2.5 2.5 0 0 1 7.5 4h9A2.5 2.5 0 0 1 19 6.5v6A2.5 2.5 0 0 1 16.5 15H10l-4 4v-4.2A2.5 2.5 0 0 1 5 12.5v-6Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="usage-title">Claude chat</span>
+            <span class="usage-desc">Research, writing, analysis, artifacts, and everyday questions.</span>
+          </button>
+          <button type="button" class="usage-card" data-v="Claude Code" role="radio" aria-checked="false">
+            <span class="usage-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M8 8 4 12l4 4M16 8l4 4-4 4M13 5l-2 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="usage-title">Claude Code</span>
+            <span class="usage-desc">Build, debug, and ship software from your terminal or IDE.</span>
+          </button>
+          <button type="button" class="usage-card" data-v="Both" role="radio" aria-checked="false">
+            <span class="usage-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none"><path d="M7 8h10M7 12h6M5 5h14v10H9l-4 3V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 15.5 16.5 18 21 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="usage-title">Both</span>
+            <span class="usage-desc">Claude chat for thinking and Claude Code for implementation.</span>
+          </button>
+        </div>
+        <div class="error-msg" id="usageError" style="display:none;margin-top:10px;">Please choose how you use Claude.</div>
+      </div>
+
+      <div class="section" data-field="cost-email">
+        <div class="section-head">
+          <div class="stage-icon">
+            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Cost &amp; purchase details</h3>
+          <span class="req">required</span>
+        </div>
+        <div class="row-2">
+          <div class="field" id="costField">
+            <label for="cost">Monthly Claude cost</label>
+            <div class="cost-group">
+              <select id="currency" aria-label="Currency" title="Currency">
+                <option value="₹">INR ₹</option>
+                <option value="$" selected>USD $</option>
+                <option value="£">GBP £</option>
+                <option value="€">EUR €</option>
+              </select>
+              <input type="text" id="cost" inputmode="decimal" placeholder="20" autocomplete="off" aria-describedby="costHint">
+            </div>
+            <div class="hint" id="costHint">Numbers only — e.g. 20 or 100 · use 0 for Free</div>
+            <div class="error-msg">Enter a valid amount using numbers only (e.g. 20).</div>
+          </div>
+          <div class="field" id="emailField">
+            <label for="email">Email used for Claude</label>
+            <input type="email" id="email" placeholder="name@datagardener.com">
+            <div class="error-msg">Enter a valid email address.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" data-field="work">
+        <div class="section-head">
+          <div class="stage-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M4 12c4-6 12-6 16 0-4 6-12 6-16 0Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>What do you use Claude for?</h3>
+          <span class="req">select at least one</span>
+        </div>
+        <div class="chip-select" id="workChips">
+          <div class="chip" data-v="Coding">Writing &amp; editing code</div>
+          <div class="chip" data-v="Claude Code">Claude Code / agentic tasks</div>
+          <div class="chip" data-v="Debugging">Debugging &amp; troubleshooting</div>
+          <div class="chip" data-v="Refactoring">Refactors &amp; migrations</div>
+          <div class="chip" data-v="Testing">Tests &amp; QA</div>
+          <div class="chip" data-v="Reviews">Code review &amp; PRs</div>
+          <div class="chip" data-v="Docs">Docs &amp; comments</div>
+          <div class="chip" data-v="Research">Research &amp; analysis</div>
+          <div class="chip" data-v="Frontend">UI / frontend work</div>
+          <div class="chip" data-v="Backend">APIs &amp; backend</div>
+          <div class="chip" data-v="DevOps">Scripts, CI &amp; DevOps</div>
+          <div class="chip" data-v="Writing">Writing &amp; content</div>
+        </div>
+        <div class="field" style="margin-top:14px;margin-bottom:0;">
+          <label for="workOther">Anything else? (optional)</label>
+          <textarea id="workOther" placeholder="e.g. Generating migrations, drafting release notes, pairing on tricky bugs…"></textarea>
+        </div>
+      </div>
+
+      <div class="section" data-field="benefit">
+        <div class="section-head">
+          <div class="stage-icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21c4-3 7-6.5 7-10.5A7 7 0 0 0 5 10.5C5 14.5 8 18 12 21Z" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3>What benefit do you get from Claude?</h3>
+          <span class="req">select at least one</span>
+        </div>
+        <div class="chip-select" id="benefitChips">
+          <div class="chip" data-v="Time Saved">Saves time every day</div>
+          <div class="chip" data-v="Faster Coding">Faster coding &amp; shipping</div>
+          <div class="chip" data-v="Fewer Errors">Fewer bugs / less rework</div>
+          <div class="chip" data-v="Better Context">Better understanding of large codebases</div>
+          <div class="chip" data-v="Quality Improvement">Higher quality output</div>
+          <div class="chip" data-v="Learning">Learning &amp; upskilling</div>
+          <div class="chip" data-v="Focus">Stay in flow / less context switching</div>
+          <div class="chip" data-v="Cost Reduction">Less effort for the same work</div>
+        </div>
+        <div class="field" style="margin-top:14px;margin-bottom:0;">
+          <label for="notes">Anything else? (optional)</label>
+          <textarea id="notes" placeholder="e.g. Team Pro seats would help — I use Agent daily on client projects."></textarea>
+        </div>
+      </div>
+
+      <div class="submit-row">
+        <button type="submit" class="plant-btn" id="submitBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Submit Claude details
+        </button>
+        <span class="submit-note">Only for Claude users · helps us support the team better</span>
+      </div>
+
+    </div>
+  </form>
+</main>
+
+<footer>DataGardener · Claude usage survey for the team</footer>
+
+<div class="popup-overlay" id="successPopup" aria-hidden="true" role="dialog" aria-labelledby="popupTitle">
+  <div class="popup">
+    <div class="popup-icon">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="#d97757" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h2 id="popupTitle">Thanks — details saved</h2>
+    <p>Your Claude usage details have been shared with <strong>Mr. Pankaj Kumar (Operations)</strong>. This helps us support licenses and tooling for the team.</p>
+    <button type="button" class="popup-btn" id="popupCloseBtn">Done</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
